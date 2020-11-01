@@ -7,7 +7,8 @@ for i in range(0, 10):
     populacao.append(ag.ini_populacao(total_dias, 0))
 
 fitness = ag.funcao_fitness(populacao)
-dizimacao = ag.funcao_dizimacao(populacao, fitness)
+pais = ag.funcao_dizimacao(populacao, fitness)
+ag.cruzamento(pais)
 
 
 # for pop in populacao:
