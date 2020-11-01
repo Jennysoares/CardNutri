@@ -2,7 +2,6 @@ import base_dados as bd
 import random
 
 
-
 def ini_populacao(dias, refeicao):
     # refeicao = 0 -> todas refeicoes
     # Dias no máximo 5
@@ -181,25 +180,19 @@ def funcao_dizimacao(pop, fitn):
     pais = parent1 + parent2
     return pais
 
-def cruzamento(pais):
 
+def cruzamento(pais):
+    filhoFinal = dict()
 
     for refeicao in pais[0].keys():
         tamanho = len(pais[0][refeicao])
-        corte = random.randint(0, tamanho-2) + 1
-        print(refeicao)
-        print(corte)
-        print(pais[0])
-        print(pais[1])
+        corte = random.randint(0, tamanho - 2) + 1
         aleatorio = random.randint(0, 1)
-        print(aleatorio)
         if aleatorio == 1:
-            print(pais[0][refeicao][0:corte])
-            print(pais[1][refeicao][corte:tamanho])
             filho = pais[0][refeicao][0:corte] + pais[1][refeicao][corte:tamanho]
         else:
-            print(pais[1][refeicao][0:corte])
-            print(pais[0][refeicao][corte:tamanho])
             filho = pais[1][refeicao][0:corte] + pais[0][refeicao][corte:tamanho]
 
-        print(filho)
+        filhoFinal.update({refeicao: filho})
+
+    return filhoFinal

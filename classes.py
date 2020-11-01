@@ -1,6 +1,7 @@
 import random
 import base_dados as bd
 
+
 class Alimento:
     def __init__(self, id, nome, valor, nutrientes, grupo):
         self.id = id
@@ -8,6 +9,7 @@ class Alimento:
         self.valor = valor
         self.nutrientes = nutrientes
         self.grupo = grupo
+
 
 class Prato:
     def __init__(self, id, nome, tipo, consistencia, alimentos, nutrientesTotal, preco, cor):
@@ -19,6 +21,7 @@ class Prato:
         self.nutrientesTotal = nutrientesTotal
         self.cor = cor
         self.preco = preco
+
 
 class Refeicao:
     def __init__(self, id, nome, composicao):
@@ -36,6 +39,3 @@ class Refeicao:
                 pratos.append(escolha)
 
         return pratos
-
-
-

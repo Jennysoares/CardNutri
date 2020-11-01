@@ -2,20 +2,20 @@ import csv
 import classes
 
 alimentos_grupo = dict([('Cereais e derivados', 0),
-                    ('Verduras, hortaliças e derivados', 0,),
-                    ('Frutas e derivados', 0,),
-                    ('Gorduras e óleos', 0,),
-                    ('Pescados e frutos do mar', 0,),
-                    ('Carnes e derivados', 0,),
-                    ('Leite e derivados', 0,),
-                    ('Bebidas', 0,),
-                    ('Ovos e derivados', 0,),
-                    ('Produtos açucarados', 0,),
-                    ('Miscelâneas', 0,),
-                    ('alimentos industrializados', 0,),
-                    ('Alimentos preparados', 0,),
-                    ('Leguminosas e derivados', 0,),
-                    ('Nozes e sementes', 0,),])
+                        ('Verduras, hortaliças e derivados', 0,),
+                        ('Frutas e derivados', 0,),
+                        ('Gorduras e óleos', 0,),
+                        ('Pescados e frutos do mar', 0,),
+                        ('Carnes e derivados', 0,),
+                        ('Leite e derivados', 0,),
+                        ('Bebidas', 0,),
+                        ('Ovos e derivados', 0,),
+                        ('Produtos açucarados', 0,),
+                        ('Miscelâneas', 0,),
+                        ('alimentos industrializados', 0,),
+                        ('Alimentos preparados', 0,),
+                        ('Leguminosas e derivados', 0,),
+                        ('Nozes e sementes', 0,), ])
 
 for key in alimentos_grupo:
     aux = list()
@@ -72,36 +72,34 @@ for key in pratos_grupo:
 
                 tamanho = len(alimentos_prato)
 
-
                 while True:
                     for busca in todos_alimentos:
                         if busca.id == alimentos_prato[i]:
                             dict_alimentos.update({busca: float(alimentos_prato[i + 1])})
-                            energ += (float(busca.nutrientes['Energia']) * (float(alimentos_prato[i + 1])))/100
-                            prot += (float(busca.nutrientes['Proteína']) * float(alimentos_prato[i + 1]))/100
-                            lip += (float(busca.nutrientes['Lipídeos']) * float(alimentos_prato[i + 1]))/100
-                            carbo += (float(busca.nutrientes['Carboidrato']) * float(alimentos_prato[i + 1]))/100
-                            fibra += (float(busca.nutrientes['Fibra']) * float(alimentos_prato[i + 1]))/100
-                            calcio += (float(busca.nutrientes['Cálcio']) * float(alimentos_prato[i + 1]))/100
-                            magne += (float(busca.nutrientes['Magnésio']) * float(alimentos_prato[i + 1]))/100
-                            ferro += (float(busca.nutrientes['Ferro']) * float(alimentos_prato[i + 1]))/100
-                            zinco += (float(busca.nutrientes['Zinco']) * float(alimentos_prato[i + 1]))/100
-                            
+                            energ += (float(busca.nutrientes['Energia']) * (float(alimentos_prato[i + 1]))) / 100
+                            prot += (float(busca.nutrientes['Proteína']) * float(alimentos_prato[i + 1])) / 100
+                            lip += (float(busca.nutrientes['Lipídeos']) * float(alimentos_prato[i + 1])) / 100
+                            carbo += (float(busca.nutrientes['Carboidrato']) * float(alimentos_prato[i + 1])) / 100
+                            fibra += (float(busca.nutrientes['Fibra']) * float(alimentos_prato[i + 1])) / 100
+                            calcio += (float(busca.nutrientes['Cálcio']) * float(alimentos_prato[i + 1])) / 100
+                            magne += (float(busca.nutrientes['Magnésio']) * float(alimentos_prato[i + 1])) / 100
+                            ferro += (float(busca.nutrientes['Ferro']) * float(alimentos_prato[i + 1])) / 100
+                            zinco += (float(busca.nutrientes['Zinco']) * float(alimentos_prato[i + 1])) / 100
 
                     if i + 2 >= tamanho:
                         break
                     else:
                         i = i + 2
 
-                nutrientes = dict(Energia= energ,
-                                  Proteína= prot,
-                                  Lipídeos= lip,
-                                  Carboidrato= carbo,
-                                  Fibra= fibra,
-                                  Cálcio= calcio,
-                                  Magnésio= magne,
-                                  Ferro= ferro,
-                                  Zinco= zinco)
+                nutrientes = dict(Energia=energ,
+                                  Proteína=prot,
+                                  Lipídeos=lip,
+                                  Carboidrato=carbo,
+                                  Fibra=fibra,
+                                  Cálcio=calcio,
+                                  Magnésio=magne,
+                                  Ferro=ferro,
+                                  Zinco=zinco)
 
                 prato = classes.Prato(prat['Valor'], prat['Nome'], prat['Tipo'], prat['Consistência'], dict_alimentos,
                                       nutrientes, prat['Custo'], prat['Cor'])
@@ -110,23 +108,21 @@ for key in pratos_grupo:
     pratos_grupo[key] = aux
 
 refNutricional = dict(Energia=0,
-                          Proteína=0,
-                          Lipídeos=0,
-                          Carboidrato=0,
-                          Fibra=0,
-                          Cálcio=0,
-                          Magnésio=0,
-                          Ferro=0,
-                          Zinco=0,
-                          CustoAluno=0)
+                      Proteína=0,
+                      Lipídeos=0,
+                      Carboidrato=0,
+                      Fibra=0,
+                      Cálcio=0,
+                      Magnésio=0,
+                      Ferro=0,
+                      Zinco=0,
+                      CustoAluno=0)
 
 with open('referencial.csv', 'r', encoding='utf-8-sig') as ficheiro:
     reader = csv.DictReader(ficheiro, delimiter=';')
     for ref in reader:
         for chave in refNutricional.keys():
             refNutricional[chave] = float(ref[chave]) * 5
-
-
 
 tipos_refeicao = list()
 desjejum = classes.Refeicao(1, 'Desjejum', ['Lanche', 'Fruta', 'Bebida Láctea'])
@@ -141,4 +137,3 @@ jantar = classes.Refeicao(3, 'Jantar',
 tipos_refeicao.append(jantar)
 lanche = classes.Refeicao(4, 'Lanche', ['Lanche', 'Fruta', 'Bebida'])
 tipos_refeicao.append(lanche)
-
