@@ -174,25 +174,59 @@ def calcularCusto(cardapio):
 
 
 def funcao_dizimacao(pop, fitn):
+    pais = list()
     ordemCresFitness = sorted(fitn)
     parent1 = (pop[fitn[ordemCresFitness[0]]])
     parent2 = (pop[fitn[ordemCresFitness[1]]])
-    pais = parent1 + parent2
+    pais.append(parent1)
+    pais.append(parent2)
+
     return pais
 
 
-def cruzamento(pais):
-    filhoFinal = dict()
+def cruzamento(pais, taxa_cruzamento):
+    filhoAux = dict()
+    filhoFinal = list()
 
-    for refeicao in pais[0].keys():
-        tamanho = len(pais[0][refeicao])
-        corte = random.randint(0, tamanho - 2) + 1
+    if random.random() < taxa_cruzamento:
+        for dia in range(0, len(pais[0])):
+            for refeicao in pais[0][0].keys():
+                tamanho = len(pais[0][0][refeicao])
+                corte = random.randint(0, tamanho - 2) + 1
+                aleatorio = random.randint(0, 1)
+
+                if aleatorio == 1:
+                    filho = pais[0][dia][refeicao][0:corte] + pais[1][dia][refeicao][corte:tamanho]
+                else:
+                    filho = pais[1][dia][refeicao][0:corte] + pais[0][dia][refeicao][corte:tamanho]
+
+                filhoAux.update({refeicao: filho})
+            filhoFinal.append(filhoAux)
+
+    else:
         aleatorio = random.randint(0, 1)
-        if aleatorio == 1:
-            filho = pais[0][refeicao][0:corte] + pais[1][refeicao][corte:tamanho]
+        if aleatorio == 0:
+            filhoFinal = pais[0]
         else:
-            filho = pais[1][refeicao][0:corte] + pais[0][refeicao][corte:tamanho]
-
-        filhoFinal.update({refeicao: filho})
+            filhoFinal = pais[1]
 
     return filhoFinal
+
+
+def mutacao(filho, taxa_mutacao):
+
+    if random.random() < taxa_mutacao:
+        dias = len(filho)
+        dia_escolhido = random.randint(0, dias - 1)
+        for refeicao in filho[dia_escolhido]:
+            qtd_pratos = len(filho[dia_escolhido][refeicao])
+            indice_mut = random.randint(0, qtd_pratos - 1)
+            mutado = filho[dia_escolhido][refeicao][indice_mut]
+
+            while mutado == filho[dia_escolhido][refeicao][indice_mut]:
+                mutado = random.choice(bd.pratos_grupo[filho[dia_escolhido][refeicao][indice_mut].tipo])
+
+            filho[dia_escolhido][refeicao][indice_mut] = mutado
+
+    return filho
+
