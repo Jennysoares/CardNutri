@@ -9,8 +9,8 @@ for i in range(0, 10):
 
 fitness = ag.funcao_fitness(populacao)
 pais = ag.funcao_dizimacao(populacao, fitness)
-filho = ag.cruzamento(pais, 0.8)
-filho_mutado = ag.mutacao(filho, 0.05)
+filhos = ag.cruzamento(pais, 0.8)
+filhos_mutado = ag.mutacao(filhos, 0.05)
 
 
 # for pop in populacao:

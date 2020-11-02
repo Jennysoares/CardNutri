@@ -185,48 +185,43 @@ def funcao_dizimacao(pop, fitn):
 
 
 def cruzamento(pais, taxa_cruzamento):
-    filhoAux = dict()
-    filhoFinal = list()
+    filhoAux1 = dict()
+    filhoAux2 = dict()
+    filhos = list()
 
     if random.random() < taxa_cruzamento:
         for dia in range(0, len(pais[0])):
             for refeicao in pais[0][0].keys():
                 tamanho = len(pais[0][0][refeicao])
                 corte = random.randint(0, tamanho - 2) + 1
-                aleatorio = random.randint(0, 1)
+                filho1 = pais[0][dia][refeicao][0:corte] + pais[1][dia][refeicao][corte:tamanho]
+                filho2 = pais[1][dia][refeicao][0:corte] + pais[0][dia][refeicao][corte:tamanho]
 
-                if aleatorio == 1:
-                    filho = pais[0][dia][refeicao][0:corte] + pais[1][dia][refeicao][corte:tamanho]
-                else:
-                    filho = pais[1][dia][refeicao][0:corte] + pais[0][dia][refeicao][corte:tamanho]
-
-                filhoAux.update({refeicao: filho})
-            filhoFinal.append(filhoAux)
-
+                filhoAux1.update({refeicao: filho1})
+                filhoAux2.update({refeicao: filho2})
+            filhos.append(filhoAux1)
+            filhos.append(filhoAux2)
     else:
-        aleatorio = random.randint(0, 1)
-        if aleatorio == 0:
-            filhoFinal = pais[0]
-        else:
-            filhoFinal = pais[1]
+        filhos.append(pais[0])
+        filhos.append(pais[1])
 
-    return filhoFinal
+    return filhos
 
 
-def mutacao(filho, taxa_mutacao):
+def mutacao(filhos, taxa_mutacao):
 
     if random.random() < taxa_mutacao:
-        dias = len(filho)
-        dia_escolhido = random.randint(0, dias - 1)
-        for refeicao in filho[dia_escolhido]:
-            qtd_pratos = len(filho[dia_escolhido][refeicao])
-            indice_mut = random.randint(0, qtd_pratos - 1)
-            mutado = filho[dia_escolhido][refeicao][indice_mut]
+        for filho in filhos:
+            dias = len(filho)
+            dia_escolhido = random.randint(0, dias - 1)
+            for refeicao in filho[dia_escolhido]:
+                qtd_pratos = len(filho[dia_escolhido][refeicao])
+                indice_mut = random.randint(0, qtd_pratos - 1)
+                mutado = filho[dia_escolhido][refeicao][indice_mut]
 
-            while mutado == filho[dia_escolhido][refeicao][indice_mut]:
-                mutado = random.choice(bd.pratos_grupo[filho[dia_escolhido][refeicao][indice_mut].tipo])
+                while mutado == filho[dia_escolhido][refeicao][indice_mut]:
+                    mutado = random.choice(bd.pratos_grupo[filho[dia_escolhido][refeicao][indice_mut].tipo])
 
-            filho[dia_escolhido][refeicao][indice_mut] = mutado
+                filho[dia_escolhido][refeicao][indice_mut] = mutado
 
-    return filho
-
+    return filhos
