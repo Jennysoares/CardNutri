@@ -9,7 +9,6 @@ nInd = 10
 for i in range(0, nInd):
     populacao.append(ag.ini_populacao(total_dias, 0))
 
-
 geracao_atual = populacao
 
 for i in range(0, 50):
@@ -21,9 +20,10 @@ for i in range(0, 50):
         pais = ag.funcao_dizimacao(geracao_atual, fitness)
         filhos_gerados = ag.cruzamento(pais, taxa_cruzamento)
         filhos_mutados = ag.mutacao(filhos_gerados, taxa_mutacao)
-        nova_populacao.append(filhos_mutados)
+        nova_populacao.append(filhos_mutados[0])
+        nova_populacao.append(filhos_mutados[1])
 
-        geracao_atual = nova_populacao
+    geracao_atual = nova_populacao
 
 fitness = ag.funcao_fitness(geracao_atual)
 print("\n-=-=-=--=-=-=--=-=-=- MELHORES CARDAPIOS -=-=-=--=-=-=--=-=-=-\n")

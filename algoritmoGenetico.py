@@ -187,6 +187,8 @@ def funcao_dizimacao(pop, fitn):
 def cruzamento(pais, taxa_cruzamento):
     filhoAux1 = dict()
     filhoAux2 = dict()
+    filhos1_lista = list()
+    filhos2_lista = list()
     filhos = list()
 
     if random.random() < taxa_cruzamento:
@@ -199,8 +201,10 @@ def cruzamento(pais, taxa_cruzamento):
 
                 filhoAux1.update({refeicao: filho1})
                 filhoAux2.update({refeicao: filho2})
-            filhos.append(filhoAux1)
-            filhos.append(filhoAux2)
+            filhos1_lista.append(filhoAux1)
+            filhos2_lista.append(filhoAux2)
+        filhos.append(filhos1_lista)
+        filhos.append(filhos2_lista)
     else:
         filhos.append(pais[0])
         filhos.append(pais[1])
