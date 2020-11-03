@@ -1,5 +1,6 @@
 import base_dados as bd
 import random
+from operator import itemgetter
 
 
 def ini_populacao(dias, refeicao):
@@ -34,7 +35,7 @@ def funcao_fitness(populacao):
 
     for i in range(0, len(populacao)):
         fitness = funcao_objetivo(populacao[i])
-        fitness_valores[fitness] = i
+        fitness_valores[i] = fitness
 
     return fitness_valores
 
@@ -173,26 +174,44 @@ def calcularCusto(cardapio):
     return custoCardapio + penalidade
 
 
-def funcao_dizimacao(pop, fitn):
+def funcao_dizimacao_corte(pop, fitn):
+    fitnessOrdenado = sorted(fitn.items(), key=itemgetter(1))
+    qtdRemocao = int(len(pop) * 0.3)
+    remover = list()
+
+    for cont in range(0, qtdRemocao):
+        remover.append(pop[fitnessOrdenado[cont][0]])
+
+    for valor in remover:
+        pop.remove(valor)
+
+    return pop
+
+def funcao_dizimacao_pais(pop):
     pais = list()
-    ordemCresFitness = sorted(fitn)
-    parent1 = (pop[fitn[ordemCresFitness[0]]])
-    parent2 = (pop[fitn[ordemCresFitness[1]]])
-    pais.append(parent1)
-    pais.append(parent2)
+
+    pai1 = random.randint(0, len(pop)-1)
+    pais.append(pop[pai1])
+
+    pai2 = pai1
+    while pai2 == pai1:
+        pai2 = random.randint(0, len(pop) - 1)
+
+    pais.append(pop[pai2])
 
     return pais
 
 
 def cruzamento(pais, taxa_cruzamento):
-    filhoAux1 = dict()
-    filhoAux2 = dict()
+
     filhos1_lista = list()
     filhos2_lista = list()
     filhos = list()
 
     if random.random() < taxa_cruzamento:
         for dia in range(0, len(pais[0])):
+            filhoAux1 = dict()
+            filhoAux2 = dict()
             for refeicao in pais[0][0].keys():
                 tamanho = len(pais[0][0][refeicao])
                 corte = random.randint(0, tamanho - 2) + 1
