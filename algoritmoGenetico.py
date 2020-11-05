@@ -45,6 +45,7 @@ def funcao_objetivo(cardapio):
     f2 = calcularCusto(cardapio)
 
     aptidao = (0.6 * f1) + (0.4 * f2)
+    aptidao = round(aptidao, 3)
 
     return aptidao
 
@@ -114,6 +115,7 @@ def calcularErroNutri(cardapio):
     else:
         r2 = 0
 
+
     # Restrição Variedade
 
     repeticao = 0
@@ -142,7 +144,7 @@ def calcularErroNutri(cardapio):
     for chave in nutriCardapio:
         valor = nutriCardapio[chave]
         valor = bd.refNutricional[chave] - valor
-        nutriCardapio[chave] = valor
+        nutriCardapio[chave] = abs(valor)
 
     erroInicial = 0
 
@@ -152,7 +154,7 @@ def calcularErroNutri(cardapio):
     erroInicial = erroInicial / len(nutriCardapio)
 
     totalRestricoes = r1total + r2 + (repeticao * 2)
-    erroFinal = erroInicial - totalRestricoes
+    erroFinal = erroInicial + totalRestricoes
 
     return erroFinal
 
@@ -176,10 +178,10 @@ def calcularCusto(cardapio):
 
 def funcao_dizimacao_corte(pop, fitn):
     fitnessOrdenado = sorted(fitn.items(), key=itemgetter(1))
-    qtdRemocao = int(len(pop) * 0.3)
+    qtdRemocao = int(len(pop) * 0.4)
     remover = list()
 
-    for cont in range(0, qtdRemocao):
+    for cont in range(len(fitnessOrdenado)-1, len(fitnessOrdenado)-qtdRemocao-1, -1):
         remover.append(pop[fitnessOrdenado[cont][0]])
 
     for valor in remover:
@@ -187,10 +189,11 @@ def funcao_dizimacao_corte(pop, fitn):
 
     return pop
 
+
 def funcao_dizimacao_pais(pop):
     pais = list()
 
-    pai1 = random.randint(0, len(pop)-1)
+    pai1 = random.randint(0, len(pop) - 1)
     pais.append(pop[pai1])
 
     pai2 = pai1
@@ -203,7 +206,6 @@ def funcao_dizimacao_pais(pop):
 
 
 def cruzamento(pais, taxa_cruzamento):
-
     filhos1_lista = list()
     filhos2_lista = list()
     filhos = list()
@@ -232,7 +234,6 @@ def cruzamento(pais, taxa_cruzamento):
 
 
 def mutacao(filhos, taxa_mutacao):
-
     if random.random() < taxa_mutacao:
         for filho in filhos:
             dias = len(filho)
