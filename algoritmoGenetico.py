@@ -30,12 +30,16 @@ def ini_populacao(dias, refeicao):
     return lista
 
 
-def funcao_fitness(populacao):
+def funcao_fitness(populacao, tipo):
     fitness_valores = dict()
-
-    for i in range(0, len(populacao)):
-        fitness = funcao_objetivo(populacao[i])
-        fitness_valores[i] = fitness
+    if tipo == 1:
+        for i in range(0, len(populacao)):
+            fitness = funcao_objetivo(populacao[i])
+            fitness_valores[i] = fitness
+    else:
+        for i in range(0, len(populacao)):
+            fitness = funcao_objetivo(populacao[i])
+            fitness_valores[fitness] = i
 
     return fitness_valores
 
@@ -115,7 +119,6 @@ def calcularErroNutri(cardapio):
     else:
         r2 = 0
 
-
     # Restrição Variedade
 
     repeticao = 0
@@ -181,7 +184,7 @@ def funcao_dizimacao_corte(pop, fitn):
     qtdRemocao = int(len(pop) * 0.4)
     remover = list()
 
-    for cont in range(len(fitnessOrdenado)-1, len(fitnessOrdenado)-qtdRemocao-1, -1):
+    for cont in range(len(fitnessOrdenado) - 1, len(fitnessOrdenado) - qtdRemocao - 1, -1):
         remover.append(pop[fitnessOrdenado[cont][0]])
 
     for valor in remover:

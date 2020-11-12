@@ -131,9 +131,11 @@ almoco = classes.Refeicao(2, 'Almoço',
                           ['Acompanhamento Arroz', 'Acompanhamento Feijão', 'Guarnição', 'Principal',
                            'Bebida', 'Sobremesa'])
 tipos_refeicao.append(almoco)
+lanche = classes.Refeicao(4, 'Lanche', ['Lanche', 'Fruta', 'Bebida'])
+tipos_refeicao.append(lanche)
 jantar = classes.Refeicao(3, 'Jantar',
                           ['Acompanhamento Arroz', 'Acompanhamento Feijão', 'Guarnição', 'Principal',
                            'Bebida', 'Sobremesa'])
 tipos_refeicao.append(jantar)
-lanche = classes.Refeicao(4, 'Lanche', ['Lanche', 'Fruta', 'Bebida'])
-tipos_refeicao.append(lanche)
+
+
