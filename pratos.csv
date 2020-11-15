@@ -1,6 +1,6 @@
 ﻿Valor;Tipo;Nome;Consistência;Alimentos;Cor;Custo
 0;Lanche;Bolo tradicional;;35,10,513,1,458,30,263,5,489,13;;0.34
-1;Lanche;Pão francês com manteiga;;53,50,261,4;;0.25
+1;Lanche;Pão francês com manteiga;;53,50,261,4;;0.15
 2;Lanche;Pão de queijo;;458,6,272,4,489,3,146,20,461,10,516,0.5;;0.20
 3;Lanche;Vitamina de frutas;;494,10,182,40,36,10,458,200,221,20;;0.08
 4;Lanche;Canjica com coco;;19,30,496,20,458,80,590,20,581,15;;0.10
@@ -9,20 +9,18 @@
 7;Lanche;Caldo de Frango com torrada;;409,20,130,25,269,6,107,2,516,1,63,20;;0.7
 8;Lanche;Sanduíche natural;;110,20,98,10,50,50,461,20,77,10,524,15,463,15;;0.45
 9;Lanche;Curau de Milho;;44,100,458,100;;0.25
-10;Lanche;Salada de Macarrão;;40,50,409,25,44,12,323,10,461,10;;0.06
-11;Lanche;Torta de carne moída;;458,25,489,100,44,50,327,30,263,25;;0.5
-12;Lanche;Biscoito Quebrador;;99,12;;0.07
-13;Lanche;Bolo de Milho;;489,13,458,30,35,20,44,20;;0.3
-14;Lanche;Esfirra de Carne;;35,50,327,40,489,100;;0.35
-15;Lanche;Pão Doce com manteiga;;54,50,261,5;;0.26
-16;Lanche;Farofa de Abobrinha com carne moída;;71,20,121,40,327,50;;0.3
-17;Lanche;Biscoito de queijo;;146,25,461,20,489,10;;0.2
-18;Lanche;Salada de Fruta;;179,50,208,50,222,50,225,50;;0.05
-19;Lanche;Farofa da Dona Ana;;584,15,327,40,163,20,179,20,222,20,121,30;;0.25
-20;Lanche;Macarrão com salsicha;;39,35,474,30;;0.20
-21;Lanche;Patê com torrada;;63,15,319,17,524,15;;0.16
-22;Lanche;Rosca;;16,1;;0.06
-23;Lanche;Pão de milho com presunto;;43,20,35,20,438,10;;0.20
+10;Lanche;Biscoito Quebrador;;99,12;;0.07
+11;Lanche;Bolo de Milho;;489,13,458,30,35,20,44,20;;0.3
+12;Lanche;Esfirra de Carne;;35,50,327,40,489,100;;0.35
+13;Lanche;Pão Doce com manteiga;;54,50,261,5;;0.26
+14;Lanche;Biscoito de queijo;;146,25,461,20,489,10;;0.2
+15;Lanche;Salada de Fruta;;179,50,208,50,222,50,225,50;;0.05
+16;Lanche;Patê com torrada;;63,15,319,17,524,15;;0.16
+17;Lanche;Rosca;;16,1;;0.06
+18;Lanche;Pão de milho com presunto;;43,20,35,20,438,10;;0.20
+19;Lanche;Biscoite Doce;;8,3;;0.06
+20;Lanche;Torradas Temperadas;;53,50,261,3;;0.15
+21;Lanche;Biscoito agua e sal;;13,6;;0.06
 0;Bebida;Suco de Cupuaçu;;494,16,193,20;Amarelo;0.12
 1;Bebida;Suco de Acerola;;494,16,170,20;Vermelho;0.12
 2;Bebida;Suco de Caja;;494,16,185,20;Vermelho;0.12
@@ -33,38 +31,49 @@
 7;Bebida;Suco de Manga;;494,16,230,20;Amarelo;0.12
 8;Bebida;Suco de Limão;;494,16,218,20;Verde;0.12
 9;Bebida;Suco de Maracujá;;494,16,233,20;Amarelo;0.12
-0;Acompanhamento Arroz;Arroz;Sólida;4,77;;0.2
-1;Acompanhamento Arroz;Arroz carreteiro;Sólida;4,50,145,3,157,15,421,10,339,20,159,4;;0.4
-2;Acompanhamento Arroz;Arroz colorido;Sólida;4,105,110,30,98,20,108,3;;0.21
-3;Acompanhamento Arroz;Arroz com Linguiça;Sólida;418,80,4,107;;0.5
+0;Acompanhamento Arroz;Arroz;;4,77;;0.2
+1;Acompanhamento Arroz;Arroz carreteiro;;4,50,145,3,157,15,421,10,339,20,159,4;;0.4
+2;Acompanhamento Arroz;Arroz colorido;;4,105,110,30,98,20,108,3;;0.21
+3;Acompanhamento Arroz;Arroz com Linguiça;;418,80,4,107;;0.35
 4;Acompanhamento Arroz;Sem arroz;;;;0
-5;Acompanhamento Arroz;Arroz Maria Izabel;Sólida;4,107,339,60;;0.3
+5;Acompanhamento Arroz;Arroz Maria Izabel;;4,107,339,60;;0.3
+6;Acompanhamento Arroz;Arroz com brocolis;;4,80,101,45;;0.21
+7;Acompanhamento Arroz;Arroz a grega;;4,105,110,30,98,20,108,3,179,100;;0.22
+8;Acompanhamento Arroz;Arroz Popeye;;4,85,119,60;;0.21
 0;Acompanhamento Feijão;Sem feijão;;;;0
 1;Acompanhamento Feijão;Feijão;Sólida;562,40,269,6;;0.2
 2;Acompanhamento Feijão;Feijão Tropeiro;Sólida;562,30,421,25,121,30,269,4,115,20,108,5;;0.38
-3;Acompanhamento Feijão;Tutu de feijão e abóbora;Sólida;562,42,121,40,65,30;;0.26
+3;Acompanhamento Feijão;Tutu de feijão e abóbora;Pastosa;562,42,121,40,65,30;;0.26
+4;Acompanhamento Feijão;Feijão Maravilha;Sólida;562,40,269,6,115,45,150,50;;0.26
+5;Acompanhamento Feijão;Tutu de feijão;Pastosa;562,42,121,40;;0.23
 0;Bebida Láctea;Achocolatado;;458,80,491,10;Marrom;0.28
 1;Bebida Láctea;Leite Queimado;;458,80,494,6;Amarelo;0.26
 2;Bebida Láctea;Leite Caramelizado;;458,80,494,6;Amarelo;0.26
 3;Bebida Láctea;Iogurte com frutas;;448,200,179,50,221,50;Vermelho;0.35
 4;Bebida Láctea;Vitamina de Frutas Enriquecida;;492,10,182,40,36,10,458,200,222,20;Amarelo;0.3
 5;Bebida Láctea;Vitamina de Banana;;182,20,494,6,458,80;Amarelo;0.32
+6;Bebida Láctea;Café com leite;;458,160,511,10;Marrom;0.26
+7;bebida Láctea;Vitamina de banana com aveia;;458,200,179,45,494,15;Amarelo;0.28
 0;Guarnição;Salada de Alface e Tomate;Sólida;77,2,161,20;Verde;0.01
 1;Guarnição;Salada de Tomate com repolho;Sólida;161,15,150,20;Verde;0.01
-2;Guarnição;Salada de Couve com acelga;Sólida;115,15,74,15;Verde;0.01
+2;Guarnição;Salada de Couve com acelga;Sólida;115,15,74,15,7,20;Verde;0.01
 3;Guarnição;Salada de Beterraba e cenoura;Sólida;98,15,109,15;Verde;0.01
-4;Guarnição;Salada de Cenoura ralada com tomate;Sólida;109,15,161,20;Verde;0.01
+4;Guarnição;Salada de Cenoura ralada com tomate;Pastosa;109,15,161,20;Verde;0.01
 5;Guarnição;Salada de Cenoura e Repolho;Sólida;109,15,150,20;Verde;0.01
-6;Guarnição;Vinagrete;Sólida;161,15,143,3,107,5;Verde;0.1
+6;Guarnição;Vinagrete;Líquida;161,15,143,3,107,5;Verde;0.1
 7;Guarnição;Salada de Legumes;Sólida;91,15,109,15,45,5;Verde;0.01
 8;Guarnição;Salada de Alface e acelga;Sólida;77,2,74,15;Verde;0.01
 9;Guarnição;Polenta a jardineira;Sólida;43,4;Amarelo;0.12
-10;Guarnição;Salada de cenoura com tomate;Sólida;109,15,161,15;;0.01
-11;Guarnição;Salada de Beterraba;Sólida;98,25;;0.01
+10;Guarnição;Salada de cenoura com tomate;Sólida;110,15,161,15;Verde;0.01
+11;Guarnição;Salada de Beterraba;Sólida;98,25;Vermelho;0.01
+12;Guarnição;Legumes refogados;Sólida;92,100,110,90,113,90;Verde;0.01
+13;Guarnição;Farofa Doce;Sólida;179,50,115,30,121,35,489,25;Amarelo;0.04
+14;Guarnição;Abóbora refogada;Sólida;65,1;Amarelo;0.01
+15;Guarnição;Salpicão de legumes;Sólida;161,15,143,3,107,5;Amarelo;0.08
 0;Principal;Estrogonofe de Frango;Sólida;409,70,447,10;;0.6
 1;Principal;Carne Ensopada com abóbora;Sólida;362,69,65,100;;0.50
 2;Principal;Carne de Panela com batata;Sólida;327,100,92,50;;0.50
-3;Principal;Purê de batatas com carne moída;Sólida;92,30,158,10,327,60;;0.4
+3;Principal;Purê de batatas com carne moída;Pastosa;92,30,158,10,327,60;;0.4
 4;Principal;Iscas de carne acebolada;Sólida;352,40,107,20;;0.4
 5;Principal;Almondega ao sugo;Sólida;327,100,158,10;;0.50
 6;Principal;Escondidinho de tilápia;Sólida;302,100, 4,90;;1.2
@@ -77,15 +86,26 @@
 13;Principal;Escondidinho de mandioca com carne moída;Sólida;327,70,130,80;;0.46
 14;Principal;Quibebe;Sólida;130,80,377,60;;0.28
 15;Principal;Frango ao molho;Sólida;409,50,159,12;;0.42
+16;Principal;Frango ao molho Branco;Sólida;409,50,458,45,35,30;;0.40
+17;Principal;Arroz de Forno;Sólida;4,80,409,50,44,50,461,20;;0.38
+18;Principal;Iscas de frango acebolada;Sólida;409,50,107,50;;0.40
+19;Principal;Almondega de Soja;Sólida;584,30,489,20,35,35;;0.26
+20;Principal;Carne cozida com mandioca;Sólida;364,50,130,100;;0.40
+21;Principal;Frango com quiabo;Sólida;409,50,159,12,147,100;;0.36
+22;Principal;Omelete de espinafre;Sólida;489,70,119,60,107,35;;0.22
+23;Principal;Ovos mexidos;Pastosa;489,8;;0.22
+24;Principal;Feijoada;Sólida;562,50,269,6,421,50,208,250;;0.24
+25;Principal;Carne cozida com legumes;Sólida;364,50,65,50,92,50;;0.44
+26;Principal;Quibe de forno;Sólida;327,50,441,40;;0.27
+27;Principal;Macarrão com frango;;409,50,107,50,39,90;;0.42
 0;Sobremesa;Bolo tradicional;;35,10,513,1,458,30,263,5,489,13;Amarelo;0.34
 1;Sobremesa;Canjica com coco;;19,30,496,20,457,80,590,20,581,15;Amarelo;0.10
 2;Sobremesa;Mingau de Chocolate;;457,150,42,10,491,20,494,10,581,15;Marrom;0.24
 3;Sobremesa;Vitamina de Banana;;182,20,494,6,458,80;Amarelo;0.32
 4;Sobremesa;Banana;;179,5;Amarelo;0.01
-5;Sobremesa;Laranja;;208,5;Amarelo;0.01
-6;Sobremesa;Achocolatado;;458,80,491,10;Marrom;0.28
-7;Sobremesa;Leite Queimado;;458,80,494,6;Amarelo;0.26
-8;Sobremesa;Bolo Formigueiro;;35,8,513,1,458,25,263,5,489,13;Marrom;0.3
+5;Sobremesa;Leite Queimado;;458,80,494,6;Amarelo;0.26
+6;Sobremesa;Bolo Formigueiro;;35,8,513,1,458,25,263,5,489,13;Marrom;0.3
+7;Sobremesa;Melancia;;235,15;Vermelha;0.01
 0;Fruta;Banana;;179,5;;0.01
 1;Fruta;Maçã;;222,5;;0.01
 2;Fruta;Laranja;;208,5;;0.01
@@ -95,3 +115,4 @@
 6;Fruta;Abacaxi;;164,5;;0.01
 7;Fruta;Kiwi;;207,5;;0.01
 8;Fruta;Mamão;;225,5;;0.01
+9;Fruta;Melancia;;235,15;;0.01
