@@ -1,3 +1,4 @@
+import timeit
 import algoritmoGenetico as ag
 from tkinter import *
 from tkinter import ttk
@@ -17,6 +18,17 @@ def gerarCardapio():
         populacao.append(ag.ini_populacao(total_dias, 0))
 
     geracao_atual = populacao
+    fitness = ag.funcao_fitness(geracao_atual, 2)
+    print(f'Fitness geração inicial = {fitness}')
+    custo = dict()
+    indices = 0
+    while True:
+        custo.update({round(ag.calcularCusto(geracao_atual[indices]), 2): indices})
+        indices += 1
+        if indices == nInd:
+            break
+
+    print(f'Custo gerção inicial = {custo}')
 
     for i in range(0, 500):
 
@@ -96,11 +108,13 @@ def mostrarAlimentos(cardapTodo, ref):
 
 def mostrarCardapio():
     progressbar.start()
+    inicio = timeit.default_timer()
     cardapio = gerarCardapio()
+
     fitness = ag.funcao_fitness(cardapio, 2)
     menu.after(20, progressbar.stop())
 
-    print(fitness)
+    print(f'\nFitness cardapio final: {fitness}')
     telaCardapios = Tk()
     telaCardapios.configure(background="black")
     telaCardapios.title("Cardápios Gerados")
@@ -162,12 +176,14 @@ def mostrarCardapio():
                                      width="31", height="6", font="Arial 8 bold", borderwidth=1, relief="solid",
                                      background=cor, foreground=fonte)
                 labeL_pratos.grid(row=cabecalho_cardapio, column=colunaRefeicao, padx=(5, 5), sticky="w")
-                labeL_pratos.bind("<Button-1>", lambda e, card=cardapiosDia, refei=refeicao: mostrarAlimentos(card, refei))
+                labeL_pratos.bind("<Button-1>",
+                                  lambda e, card=cardapiosDia, refei=refeicao: mostrarAlimentos(card, refei))
         Label(second_frame, text="", width="31", height="1", font="Arial 8 bold", borderwidth=1,
               background="#E7DDE0").grid(row=cabecalho_cardapio + 1, column=0, columnspan=4, padx=(5, 5), sticky="w")
 
         novo_cardapio = cabecalho_cardapio + 2
-
+    fim = timeit.default_timer()
+    print(f'\nTempo de execução: {fim - inicio}')
     telaCardapios.mainloop()
 
 
